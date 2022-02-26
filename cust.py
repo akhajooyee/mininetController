@@ -16,7 +16,7 @@ class MyTopo( Topo ):
         # adding Switches
         switches = []
         for i in range(numOfSwitches):
-            switches.append(self.addSwitch('s' + str(i), failMode='secure', protocols='OpenFlow13'))
+            switches.append(self.addSwitch('s' + str(i)))
 
         # adding hosts
         # adding hosts to the switches
