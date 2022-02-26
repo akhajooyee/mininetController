@@ -34,6 +34,8 @@ for i in range(numOfSwitches):
         if AM[i][j] == 1:
             net.addLink(switches[i],switches[j])
 
-print(net.links)
+net.start()
+net.pingAll()
+net.stop()
 
 
