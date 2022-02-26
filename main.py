@@ -13,12 +13,12 @@ numOfHosts = 2
 net = Mininet()
 
 #Adding Controllers
-c0 = net.addController()
+c0 = net.addController('c0', controller=RemoteController, ip="127.0.0.1", port=6633)
 
 #adding Switches
 switches = []
 for i in range(numOfSwitches):
-    switches.append(net.addSwitch('s'+str(i)))
+    switches.append(net.addSwitch('s'+str(i), failMode='secure', protocols='OpenFlow13'))
 
 # adding hosts
 #adding hosts to the switches
@@ -35,6 +35,7 @@ for i in range(numOfSwitches):
             net.addLink(switches[i],switches[j])
 
 net.start()
+net.links
 net.pingAll()
 net.stop()
 
